@@ -1,36 +1,17 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TopBar from './components/TopBar';
-import HeroSection from './components/HeroSection';
-import DetalhesDia from './components/DetalhesDia';
-import Localizacao from './components/Localizacao';
-import ConfirmacaoPresenca from './components/ConfirmacaoEDressCode';
-import Agradecimento from './components/Agradecimento';
-import ListaPresentes from './components/ListaPresentes'; 
+import { HashRouter, Routes, Route } from 'react-router-dom'; 
 import PresentesPage from './pages/PresentesPage'; 
+import Home from './pages/Home'; 
 
-const Home = () => {
-  return (
-    <>
-      <TopBar />
-      <HeroSection />
-      <DetalhesDia />
-      <Localizacao />
-      <ListaPresentes />
-      <ConfirmacaoPresenca />
-      <Agradecimento />
-    </>
-  );
-};
 
 const App = () => {
   return (
-    <BrowserRouter basename="/theweddingofdavidandfernanda/">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/presentes" element={<PresentesPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
