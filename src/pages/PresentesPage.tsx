@@ -1,44 +1,44 @@
 import { useState, useEffect } from 'react';
 import '../styles/PresentesPage.css';
+import imagens from '../components/Imagens';
 
 const presentes = [
   { nome: 'Cartinha virtual 💌', preco: 0 },
   { nome: 'Uma oração 🙏', preco: 0 },
-  { nome: 'Kit para bolo', preco: 50, imagem: '/images/kit-bolo.jpg' },
-  { nome: 'Xicaras', preco: 70, imagem: '/images/Conjunto-de-xicaras.jpg' },
-  { nome: 'Jogo de copos (6 unid.)', preco: 90, imagem: '/images/jogo-de-copos.jpg' },
-  { nome: 'Jogo de toalhas', preco: 120, imagem: '/images/toalhas.jpg' },
-  { nome: 'Ventilador de mesa', preco: 140, imagem: '/images/tufao.jpg' },
-  { nome: 'Liquidificador', preco: 180, imagem: '/images/Liquidificador.webp' },
-  { nome: 'Cafeteira elétrica', preco: 230, imagem: '/images/cafeteira.jpg' },
-  { nome: 'Conjunto de talheres', preco: 250, imagem: '/images/conjunto-de-talheres.avif' },
-  { nome: 'Jogo de cama queen', preco: 280, imagem: '/images/cama.webp' },
-  { nome: 'Conjunto de panelas', preco: 320, imagem: '/images/panelas.webp' },
-  { nome: 'Aparelho de jantar', preco: 350, imagem: '/images/jantas.jpg' },
-  { nome: 'Micro-ondas (cota)', preco: 400, imagem: '/images/micro-ondas.jpg' },
-  { nome: 'Aparador de entrada', preco: 450, imagem: '/images/aparador.jpg' },
-  { nome: 'Echo show (Alexa)', preco: 500, imagem: '/images/echo-show.jpg' },
-  { nome: 'Kit viagem (malas ou acessórios)', preco: 600, imagem: '/images/kit-mala.webp' },
-  { nome: 'Air fryer', preco: 680, imagem: '/images/Fryer.jpg' },
-  { nome: 'Armário de cozinha', preco: 850, imagem: '/images/Armario.webp' },
-  { nome: 'Smart TV 42"', preco: 1200, imagem: '/images/tv.jpg' },
-  { nome: 'Geladeira (cota)', preco: 1400, imagem: '/images/geladeira.jpg' },
-  { nome: 'Máquina de lavar (cota)', preco: 1600, imagem: '/images/lavadora.jpg' },
-  { nome: 'Robô aspirador inteligente', preco: 2000, imagem: '/images/robo-aspirador.webp' },
+  { nome: 'Kit para bolo', preco: 50, imagem: imagens.KitBolo },
+  { nome: 'Xicaras', preco: 70, imagem: imagens.Xicaras },
+  { nome: 'Jogo de copos (6 unid.)', preco: 90, imagem: imagens.Copos },
+  { nome: 'Jogo de toalhas', preco: 120, imagem: imagens.Toalhas },
+  { nome: 'Ventilador de mesa', preco: 140, imagem: imagens.Ventilador },
+  { nome: 'Liquidificador', preco: 180, imagem: imagens.Liquidificador },
+  { nome: 'Cafeteira elétrica', preco: 230, imagem: imagens.Cafeteira },
+  { nome: 'Conjunto de talheres', preco: 250, imagem: imagens.Talheres },
+  { nome: 'Jogo de cama queen', preco: 280, imagem: imagens.Cama },
+  { nome: 'Conjunto de panelas', preco: 320, imagem: imagens.Panelas },
+  { nome: 'Aparelho de jantar', preco: 350, imagem: imagens.Janta },
+  { nome: 'Micro-ondas (cota)', preco: 400, imagem: imagens.MicroOndas },
+  { nome: 'Aparador de entrada', preco: 450, imagem: imagens.Aparador },
+  { nome: 'Echo show (Alexa)', preco: 500, imagem: imagens.Alexa },
+  { nome: 'Kit viagem (malas ou acessórios)', preco: 600, imagem: imagens.KitMala },
+  { nome: 'Air fryer', preco: 680, imagem: imagens.AirFryer },
+  { nome: 'Armário de cozinha', preco: 850, imagem: imagens.Armario },
+  { nome: 'Smart TV 42"', preco: 1200, imagem: imagens.TV },
+  { nome: 'Geladeira (cota)', preco: 1400, imagem: imagens.Geladeira },
+  { nome: 'Máquina de lavar (cota)', preco: 1600, imagem: imagens.Lavadora },
+  { nome: 'Robô aspirador inteligente', preco: 2000, imagem: imagens.RoboAspirador },
 ];
 
 const PresentesPage = () => {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itensPorPagina, setItensPorPagina] = useState(8);
 
-  // Detecta largura da tela e ajusta itens por página
   useEffect(() => {
     function ajustarItensPorPagina() {
       const largura = window.innerWidth;
       if (largura < 768) {
         setItensPorPagina(6);  
       } else if (largura < 1024) {
-        setItensPorPagina(6);   // tablet: 6 itens
+        setItensPorPagina(6);   
       } else {
         setItensPorPagina(10);   
       }
@@ -62,6 +62,7 @@ const PresentesPage = () => {
   );
 
   return (
+    
     <div className="pagina-presentes">
       <h2>Escolha um presente com carinho 💛</h2>
       <p className="intro">

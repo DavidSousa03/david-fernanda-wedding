@@ -3,7 +3,6 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import PresentesPage from './pages/PresentesPage'; 
 import Home from './pages/Home'; 
 
-
 const App = () => {
   return (
     <HashRouter>

@@ -13,7 +13,7 @@ const Localizacao = () => {
             <h3>Cerimônia & Festa</h3>
             <p>Espaço Mais Festa</p>
             <p>26 de Julho de 2025, às 16h30</p>
-            <p>Traje: Passeio completo</p>
+            <p>Traje: Passeio</p>
           </div>
           <div className="mapa">
             <iframe
