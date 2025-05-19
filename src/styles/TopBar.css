@@ -1,0 +1,233 @@
+:root {
+  --verde-musgo: #4A5832;
+  --dourado: #C9A44B; /* só coloquei essa pq estava usada */
+  --branco: #fff; /* adiciona a variável branco pois usa no background */
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.menu-left,
+.menu-right {
+  display: none;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-left li,
+.menu-right li {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--verde-musgo);
+  transition: color 0.3s, border-bottom 0.3s;
+  white-space: nowrap;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.menu-left li:hover,
+.menu-right li:hover {
+  color: var(--dourado);
+  border-bottom: 2px solid var(--dourado);
+}
+
+.center-title {
+  display: none;
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: var(--verde-musgo);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.logo-mobile {
+  height: 40px;
+  display: block;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--verde-musgo);
+  border-radius: 2px;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: var(--branco);
+  flex-direction: column;
+  width: 200px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  list-style: none;
+  z-index: 1000;
+}
+
+.menu.open {
+  display: flex;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.menu li {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--verde-musgo);
+  transition: color 0.3s, border-bottom 0.3s;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-family: 'Quicksand', sans-serif;
+  list-style: none; /* remove bolinhas */
+}
+
+.menu li:hover {
+  color: var(--dourado);
+  border-bottom: 2px solid var(--dourado);
+}
+
+/* ======== MOBILE ======== */
+@media (max-width: 768px) {
+  .topbar {
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  .menu-left,
+  .menu-right {
+    display: none;
+  }
+
+  .center-title {
+    display: block;
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    font-size: 1.6rem;
+  }
+
+  .logo-mobile {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* MENU MOBILE MELHORADO */
+  .menu {
+    top: 60px;
+    right: 10px;
+    width: 220px;
+    padding: 15px 20px;
+    background: var(--branco);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    display: none;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+    flex-direction: column;
+  }
+
+  .menu.open {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .menu li {
+    padding: 14px 10px;
+    font-weight: 600;
+    color: var(--verde-musgo);
+    border-radius: 8px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    user-select: none;
+    list-style: none; /* remove bolinhas */
+  }
+
+  .menu li + li {
+    margin-top: 8px;
+  }
+
+  .menu li:hover,
+  .menu li:focus {
+    background-color: #f0f4e9;
+    color: var(--dourado);
+    outline: none;
+  }
+
+  .menu li:active {
+    background-color: #dbe4ca;
+  }
+
+  .menu li:focus-visible {
+    outline: 2px solid var(--dourado);
+    outline-offset: 2px;
+  }
+}
+
+/* ======== DESKTOP ======== */
+@media (min-width: 769px) {
+  .logo-mobile {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-left,
+  .menu-right {
+    display: flex;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .menu-left {
+    margin-right: auto;
+  }
+
+  .menu-right {
+    margin-left: auto;
+  }
+
+  .center-title {
+    display: block;
+  }
+}

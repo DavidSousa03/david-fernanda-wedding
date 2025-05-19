@@ -1,0 +1,133 @@
+.pagina-presentes {
+  padding: 40px ;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #444;
+}
+
+.presentes-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 2rem;
+  justify-content: center; 
+}
+
+.presente-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.presente-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.presente-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.imagem-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 3rem;
+  margin: 0 auto 1rem;
+}
+
+.presente-card p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.presente-card button {
+  background-color: var(--verde-musgo);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.presente-card button:hover {
+  background-color: #4a633c;
+}
+
+.presente-card button:focus {
+  outline: 2px solid #7a9a3e;
+  outline-offset: 2px;
+}
+
+.pix-section {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+}
+
+.paginacao {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paginacao button {
+  background-color: var(--verde-musgo);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paginacao button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.paginacao button:focus {
+  outline: 2px solid #7a9a3e;
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px) {
+  .presentes-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .presentes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentes-grid {
+    grid-template-columns: 1fr;
+  }
+}

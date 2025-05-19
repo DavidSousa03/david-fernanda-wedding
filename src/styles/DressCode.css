@@ -1,0 +1,109 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.modal-content {
+  background-color: var(--branco);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--cinza-escuro);
+  text-align: center;
+}
+
+.confirmacao-container {
+  padding-top: 96px;
+  padding-bottom: 120px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.confirmacao-container h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: var(--verde-musgo);
+  margin-bottom: 20px;
+}
+
+.confirmacao-container button {
+  background-color: var(--verde-musgo);
+  color: var(--branco);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.confirmacao-container button:hover,
+.confirmacao-container button:focus {
+  background-color: var(--dourado);
+  outline: none;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.25rem;
+  color: var(--verde-musgo);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.descricao {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+button {
+  background-color: var(--verde-musgo);
+  color: var(--branco);
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--dourado);
+  outline: none;
+}
+
+@media (max-width: 765px) {
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .confirmacao-container h4 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

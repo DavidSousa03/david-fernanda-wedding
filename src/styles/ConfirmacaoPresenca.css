@@ -1,0 +1,223 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 480px;    
+  max-height: 80vh;    
+  overflow-y: auto;    
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.confirmacao-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.confirmacao-container {
+  padding-top: 96px;
+  padding-bottom: 120px;
+  text-align: center;
+}
+
+.confirmacao-container h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: var(--verde-musgo);
+  margin-bottom: 20px;
+}
+
+.confirmacao-container button {
+  background-color: var(--verde-musgo);
+  color: var(--branco);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.confirmacao-container button:hover,
+.confirmacao-container button:focus {
+  background-color: var(--dourado);
+  outline: none;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.25rem;
+  color: var(--verde-musgo);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.descricao {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-family: 'Quicksand', sans-serif;
+}
+
+input,
+select,
+button[type="submit"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Quicksand', sans-serif;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--verde-musgo);
+  outline: none;
+  box-shadow: 0 0 8px rgba(74, 88, 50, 0.3);
+}
+
+button[type="submit"] {
+  background-color: var(--verde-musgo);
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: var(--dourado);
+  outline: none;
+  transform: scale(1.05);
+}
+
+.switch-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--verde-musgo);
+  margin-top: 1rem;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.switch-wrapper p {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--branco);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--verde-musgo);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+button[type="button"] {
+  background-color: transparent;
+  color: var(--verde-musgo);
+  border: 1px solid var(--verde-musgo);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  width: auto;
+  display: inline-block;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button[type="button"]:hover {
+  background-color: var(--verde-musgo-claro);
+  color: var(--branco);
+  border-color: var(--verde-musgo-claro);
+}
+
+@media (max-width: 765px) {
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .confirmacao-container h4 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

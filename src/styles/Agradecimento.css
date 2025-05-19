@@ -1,0 +1,66 @@
+#agradecimento {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 3rem 2rem;
+  background-color: #d4e1b4;
+  border-radius: 15px;
+  text-align: center;
+  overflow-wrap: break-word; 
+}
+.agradecimento-title {
+  font-size: 2rem;
+  color: var(--verde-musgo); 
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.agradecimento-message,
+.agradecimento-note,
+.agradecimento-sign {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: var(--verde-musgo);
+  text-align: center;
+}
+
+.agradecimento-sign strong {
+  display: block;
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #50622e; 
+}
+.agradecimento-message {
+  font-weight: 400;
+}
+
+.agradecimento-note {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.agradecimento-sign {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  #agradecimento {
+    padding: 2rem 1rem;
+  }
+
+  .agradecimento-title {
+    font-size: 1.5rem;
+  }
+
+  .agradecimento-message,
+  .agradecimento-note,
+  .agradecimento-sign {
+    font-size: 1rem;
+  }
+}

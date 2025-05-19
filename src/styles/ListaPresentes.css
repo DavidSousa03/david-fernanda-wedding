@@ -1,0 +1,45 @@
+.lista-presentes {
+  background-color: #d4e1b4;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.lista-presentes h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--verde-musgo);
+  margin-bottom: 1.5rem;
+}
+
+.lista-presentes p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 2rem;
+}
+
+.botao-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.botao-ver-lista {
+  display: inline-block;
+  background-color: var(--verde-musgo);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.botao-ver-lista:hover {
+  background-color: var(--verde-musgo-claro);
+  transform: translateX(4px);
+}
