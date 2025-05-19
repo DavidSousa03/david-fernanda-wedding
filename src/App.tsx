@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import TopBar from './components/TopBar';
 import HeroSection from './components/HeroSection';
 import DetalhesDia from './components/DetalhesDia';
@@ -26,7 +25,7 @@ const Home = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/theweddingofdavidandfernanda/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/presentes" element={<PresentesPage />} />
