@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/DressCode.css";
+import { inspiracoes } from "../assets/inspirações/Inspiracoes";
 
 const DressCodeModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,6 +36,45 @@ const DressCodeModal = () => {
                 <br />
                 Sugerimos roupas elegantes, mas confortáveis para celebrar conosco!
               </p>
+
+              <div className="galeria-inspiracoes">
+                <h3>Masculino</h3>
+                <div className="imagens">
+                  {inspiracoes.masculino.map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Inspiração Masculina ${index + 1}`}
+                      className="inspiracao-imagem"
+                    />
+                  ))}
+                </div>
+
+                <h3>Casal</h3>
+                <div className="imagens">
+                  {inspiracoes.casal.map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Inspiração Casal ${index + 1}`}
+                      className="inspiracao-imagem"
+                    />
+                  ))}
+                </div>
+
+                <h3>Feminino</h3>
+                <div className="imagens">
+                  {inspiracoes.feminino.map((src, index) => (
+                    <img
+                      key={index}
+                      src={src}
+                      alt={`Inspiração Feminina ${index + 1}`}
+                      className="inspiracao-imagem"
+                    />
+                  ))}
+                </div>
+              </div>
+
               <button onClick={closeModal}>Fechar</button>
             </section>
           </div>

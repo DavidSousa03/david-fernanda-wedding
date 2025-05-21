@@ -74,6 +74,35 @@ h2 {
   margin-bottom: 2rem;
   font-weight: 400;
 }
+.galeria-inspiracoes {
+  margin-top: 2rem;
+}
+
+.galeria-inspiracoes h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.imagens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.inspiracao-imagem {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.inspiracao-imagem:hover {
+  transform: scale(1.03);
+}
 
 button {
   background-color: var(--verde-musgo);
