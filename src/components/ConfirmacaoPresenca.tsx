@@ -3,6 +3,7 @@ import "../styles/ConfirmacaoPresenca.css";
 import {
   buscarTodosConvidados,
   confirmarPresencaPorNome,
+  verificarSeConfirmado,
 } from "../service/confirmarPresencaPorNome";
 
 interface Convidado {
@@ -141,30 +142,47 @@ const ConfirmacaoPresenca = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (addAdditionalGuests) {
-      if (guestNames.some((name) => name.trim() === "")) {
-        alert("Por favor, preencha todos os nomes dos convidados!");
-        return;
-      }
+    if (addAdditionalGuests && guestNames.some((name) => name.trim() === "")) {
+      alert("Por favor, preencha todos os nomes dos convidados!");
+      return;
     }
 
-    const convidadoSelecionado = todosConvidados.find(
+    if (!fullName.trim()) {
+      alert("Por favor, informe seu nome completo!");
+      return;
+    }
+
+    const convidadoPrincipal = todosConvidados.find(
       (c) => c.Convidado === fullName
     );
-    if (!convidadoSelecionado) {
+    if (!convidadoPrincipal) {
       alert("Convidado principal não encontrado!");
       return;
     }
 
     try {
-      await confirmarPresencaPorNome(convidadoSelecionado, email);
+      const confirmadosAgora: string[] = [];
+      const jaConfirmados: string[] = [];
+
+      const confirmarSeNaoConfirmado = async (
+        convidado: Convidado,
+        email?: string
+      ) => {
+        const jaConfirmou = await verificarSeConfirmado(convidado);
+        if (jaConfirmou) {
+          jaConfirmados.push(convidado.Convidado || "Convidado");
+        } else {
+          await confirmarPresencaPorNome(convidado, email);
+          confirmadosAgora.push(convidado.Convidado || "Convidado");
+        }
+      };
+
+      await confirmarSeNaoConfirmado(convidadoPrincipal, email);
 
       if (addAdditionalGuests) {
-        const convidadosExtras = guestNames.filter(
+        for (const nomeConvidado of guestNames.filter(
           (name) => name.trim() !== ""
-        );
-
-        for (const nomeConvidado of convidadosExtras) {
+        )) {
           const convidadoExtra = todosConvidados.find(
             (c) => c.Convidado === nomeConvidado
           );
@@ -172,34 +190,25 @@ const ConfirmacaoPresenca = () => {
             alert(`Convidado adicional "${nomeConvidado}" não encontrado!`);
             return;
           }
-          await confirmarPresencaPorNome(convidadoExtra);
+          await confirmarSeNaoConfirmado(convidadoExtra);
         }
-
-        let mensagem = "Confirmação de presença realizada com sucesso.\n";
-        mensagem += `Obrigado, ${fullName}.\n`;
-        if (convidadosExtras.length > 0) {
-          mensagem += `Também confirmamos a presença de: ${convidadosExtras.join(
-            ", "
-          )}.\n`;
-        } else {
-          mensagem += "Nenhum outro convidado adicional confirmado.\n";
-        }
-        if (email) {
-          mensagem +=
-            "Entraremos em contato pelo e-mail fornecido, se necessário.";
-        }
-        alert(mensagem);
-      } else {
-        let mensagem = "Confirmação de presença realizada com sucesso.\n";
-        mensagem += `Obrigado, ${fullName}.\n`;
-        if (email) {
-          mensagem +=
-            "Entraremos em contato pelo e-mail fornecido, se necessário.";
-        }
-        alert(mensagem);
       }
 
-      resetForm();
+      let mensagem = "";
+      if (confirmadosAgora.length > 0) {
+        mensagem += `Presença confirmada: ${confirmadosAgora.join(", ")}.\n`;
+      }
+      if (jaConfirmados.length > 0) {
+        mensagem += `Já estavam confirmados: ${jaConfirmados.join(", ")}.\n`;
+      }
+      if (email) {
+        mensagem +=
+          "Entraremos em contato pelo e-mail fornecido, se necessário.";
+      }
+
+      alert(mensagem);
+
+      resetForm()
       setIsModalOpen(false);
     } catch (error) {
       alert(`Erro ao confirmar presença: ${error}`);

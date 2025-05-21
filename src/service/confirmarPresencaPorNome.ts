@@ -12,6 +12,11 @@ export const buscarTodosConvidados = async () => {
   return res.data?.list || [];
 };
 
+export const verificarSeConfirmado = async (convidado: Convidado): Promise<boolean> => {
+  const res = await api.get(`/tables/mz5cxkobmior7n5/records/${convidado.Id}`);
+  return res.data?.Confirmado === true;
+};
+
 export const confirmarPresencaPorNome = async (convidado: Convidado, email?: string) => {
   return api.patch(`/tables/mz5cxkobmior7n5/records`, {
     Id: convidado.Id,
