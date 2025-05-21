@@ -12,6 +12,16 @@ interface Convidado {
 }
 
 const ConfirmacaoPresenca = () => {
+  const resetForm = () => {
+    setFullName("");
+    setEmail("");
+    setGuests(1);
+    setGuestNames([""]);
+    setAddAdditionalGuests(false);
+    setSuggestions([]);
+    setShowSuggestions(false);
+    setOpenDropdownIndexes([]);
+  };
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [guests, setGuests] = useState(1);
@@ -187,6 +197,7 @@ const ConfirmacaoPresenca = () => {
         alert(mensagem);
       }
 
+      resetForm();
       setIsModalOpen(false);
     } catch (error) {
       alert(`Erro ao confirmar presença: ${error}`);
@@ -194,7 +205,10 @@ const ConfirmacaoPresenca = () => {
   };
 
   const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    resetForm();
+    setIsModalOpen(false);
+  };
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
