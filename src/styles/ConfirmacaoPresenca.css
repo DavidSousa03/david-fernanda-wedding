@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,11 +17,11 @@
   border-radius: 8px;
   padding: 1.5rem;
   width: 100%;
-  max-width: 480px;    
-  max-height: 80vh;    
-  overflow-y: auto;    
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  font-family: 'Quicksand', sans-serif;
+  max-width: 480px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: "Quicksand", sans-serif;
 }
 
 .confirmacao-wrapper {
@@ -37,7 +37,7 @@
 }
 
 .confirmacao-container h4 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 3rem;
   line-height: 1.2;
   color: var(--verde-musgo);
@@ -53,7 +53,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: none;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .confirmacao-container button:hover,
@@ -63,7 +63,7 @@
 }
 
 h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 2.25rem;
   color: var(--verde-musgo);
   margin-bottom: 1.5rem;
@@ -73,7 +73,7 @@ h2 {
 }
 
 .descricao {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   color: var(--cinza-escuro);
   margin-bottom: 2rem;
@@ -83,7 +83,31 @@ h2 {
 .form-field {
   margin-bottom: 1.5rem;
   text-align: left;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #eee;
 }
 
 input,
@@ -97,7 +121,7 @@ button[type="submit"] {
   border-radius: 5px;
   box-sizing: border-box;
   transition: all 0.3s ease-in-out;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 input:focus,
@@ -115,7 +139,7 @@ button[type="submit"] {
   border: none;
   margin-top: 1.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 button[type="submit"]:hover,
@@ -133,12 +157,12 @@ button[type="submit"]:focus {
   color: var(--verde-musgo);
   margin-top: 1rem;
   width: 100%;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .switch-wrapper p {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .switch {
@@ -178,11 +202,17 @@ button[type="submit"]:focus {
   border-radius: 50%;
 }
 
-input:checked + .slider {
+.divisoria {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+input:checked+.slider {
   background-color: var(--verde-musgo);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(26px);
 }
 
@@ -198,7 +228,7 @@ button[type="button"] {
   margin-top: 0.5rem;
   width: auto;
   display: inline-block;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 button[type="button"]:hover {
