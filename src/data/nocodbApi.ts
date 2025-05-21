@@ -19,4 +19,14 @@ const api = axios.create({
   }
 });
 
+api.interceptors.request.use((config) => {
+  if (config.method === 'get') {
+    config.params = {
+      limit: 100,
+      ...(config.params || {}),
+    };
+  }
+  return config;
+});
+
 export default api;
