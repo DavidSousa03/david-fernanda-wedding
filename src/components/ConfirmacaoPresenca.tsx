@@ -141,9 +141,11 @@ const ConfirmacaoPresenca = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (guestNames.some((name) => name.trim() === "")) {
-      alert("Por favor, preencha todos os nomes dos convidados!");
-      return;
+    if (addAdditionalGuests) {
+      if (guestNames.some((name) => name.trim() === "")) {
+        alert("Por favor, preencha todos os nomes dos convidados!");
+        return;
+      }
     }
 
     const convidadoSelecionado = todosConvidados.find(
