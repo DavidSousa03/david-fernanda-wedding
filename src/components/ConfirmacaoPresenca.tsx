@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "../styles/ConfirmacaoPresenca.css";
-import {buscarTodosConvidados, confirmarPresencaPorNome, } from "../service/confirmarPresencaPorNome";
+import {
+  buscarTodosConvidados,
+  confirmarPresencaPorNome,
+} from "../service/confirmarPresencaPorNome";
 
 interface Convidado {
   Id: number;
@@ -83,7 +86,7 @@ const ConfirmacaoPresenca = () => {
     if (inputValue.length < 2) return [];
 
     const nomesEscolhidos = guestNames
-      .filter((nome, idx) => idx !== currentIndex)
+      .filter((_, idx) => idx !== currentIndex)
       .map((n) => n.trim().toLowerCase())
       .filter((n) => n !== "");
 
@@ -149,16 +152,17 @@ const ConfirmacaoPresenca = () => {
           (name) => name.trim() !== ""
         );
 
-        for (const nome of convidadosExtras) {
+        for (const nomeConvidado of convidadosExtras) {
           const convidadoExtra = todosConvidados.find(
-            (c) => c.Convidado === nome
+            (c) => c.Convidado === nomeConvidado
           );
           if (!convidadoExtra) {
-            alert(`Convidado adicional "${nome}" não encontrado!`);
+            alert(`Convidado adicional "${nomeConvidado}" não encontrado!`);
             return;
           }
           await confirmarPresencaPorNome(convidadoExtra);
         }
+
         let mensagem = "Confirmação de presença realizada com sucesso.\n";
         mensagem += `Obrigado, ${fullName}.\n`;
         if (convidadosExtras.length > 0) {
@@ -189,7 +193,6 @@ const ConfirmacaoPresenca = () => {
     }
   };
 
-
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
@@ -198,7 +201,6 @@ const ConfirmacaoPresenca = () => {
       closeModal();
     }
   };
-
 
   return (
     <>
@@ -274,7 +276,6 @@ const ConfirmacaoPresenca = () => {
                     />
                     <span className="slider"></span>
                   </label>
-                
                 </div>
 
                 {addAdditionalGuests && (
