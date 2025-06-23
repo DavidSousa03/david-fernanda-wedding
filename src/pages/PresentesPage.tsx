@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/PresentesPage.css";
 import imagens from "../components/Imagens";
-import TopBarMinimal from "../components/TopBarMinimal"; 
+import TopBarMinimal from "../components/TopBarMinimal";
 
 type Presente = {
   nome: string;
@@ -9,9 +9,7 @@ type Presente = {
   imagem?: string;
 };
 
-const presentes: Presente[] = [
-  { nome: "Cartinha virtual 💌", preco: 5 },
-  { nome: "Uma oração 🙏", preco: 2 },
+const presentesOriginais: Presente[] = [
   { nome: "Kit para bolo", preco: 50, imagem: imagens.KitBolo },
   { nome: "Xicaras", preco: 70, imagem: imagens.Xicaras },
   { nome: "Jogo de copos (6 unid.)", preco: 90, imagem: imagens.Copos },
@@ -35,11 +33,26 @@ const presentes: Presente[] = [
   { nome: "Robô aspirador inteligente", preco: 2000, imagem: imagens.RoboAspirador },
 ];
 
+function embaralharArray<T>(array: T[]): T[] {
+  const copia = [...array];
+  for (let i = copia.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copia[i], copia[j]] = [copia[j], copia[i]];
+  }
+  return copia;
+}
+
 const PresentesPage = () => {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itensPorPagina, setItensPorPagina] = useState(8);
   const [modalAberto, setModalAberto] = useState(false);
   const [presenteSelecionado, setPresenteSelecionado] = useState<Presente | null>(null);
+  const [presentes, setPresentes] = useState<Presente[]>([]);
+
+  useEffect(() => {
+    const presentesEmbaralhados = embaralharArray(presentesOriginais);
+    setPresentes(presentesEmbaralhados);
+  }, []);
 
   useEffect(() => {
     function ajustarItensPorPagina() {
@@ -63,7 +76,11 @@ const PresentesPage = () => {
   }, [itensPorPagina]);
 
   const totalPaginas = Math.ceil(presentes.length / itensPorPagina);
-  const presentesVisiveis = presentes.slice((paginaAtual - 1) * itensPorPagina, paginaAtual * itensPorPagina);
+
+  const presentesVisiveis = presentes.slice(
+    (paginaAtual - 1) * itensPorPagina,
+    paginaAtual * itensPorPagina
+  );
 
   const abrirModal = (presente: Presente) => {
     setPresenteSelecionado(presente);
@@ -107,7 +124,10 @@ const PresentesPage = () => {
           <span>
             Página {paginaAtual} de {totalPaginas}
           </span>
-          <button onClick={() => setPaginaAtual((p) => Math.min(totalPaginas, p + 1))} disabled={paginaAtual === totalPaginas}>
+          <button
+            onClick={() => setPaginaAtual((p) => Math.min(totalPaginas, p + 1))}
+            disabled={paginaAtual === totalPaginas}
+          >
             Próxima →
           </button>
         </div>
@@ -115,7 +135,7 @@ const PresentesPage = () => {
         <div className="pix-section">
           <h3>Prefere contribuir com Pix?</h3>
           <p>
-            Chave Pix: <strong>casamento@exemplo.com</strong>
+            Chave Pix: <strong>11940729310</strong>
           </p>
         </div>
 
@@ -127,7 +147,11 @@ const PresentesPage = () => {
               </button>
               <h2>{presenteSelecionado.nome}</h2>
               {presenteSelecionado.imagem && (
-                <img src={presenteSelecionado.imagem} alt={presenteSelecionado.nome} style={{ maxWidth: "100%", marginBottom: "1rem" }} />
+                <img
+                  src={presenteSelecionado.imagem}
+                  alt={presenteSelecionado.nome}
+                  style={{ maxWidth: "100%", marginBottom: "1rem" }}
+                />
               )}
               <p>
                 Preço: <strong>R$ {presenteSelecionado.preco.toFixed(2)}</strong>
@@ -139,7 +163,9 @@ const PresentesPage = () => {
 
                 <p>
                   <a
-                    href={`https://wa.me/5599985360863?text=${encodeURIComponent(`Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`)}`}
+                    href={`https://wa.me/5599985360863?text=${encodeURIComponent(
+                      `Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -149,7 +175,9 @@ const PresentesPage = () => {
 
                 <p>
                   <a
-                    href={`https://wa.me/5511940729310?text=${encodeURIComponent(`Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`)}`}
+                    href={`https://wa.me/5511940729310?text=${encodeURIComponent(
+                      `Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

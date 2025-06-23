@@ -124,7 +124,7 @@ const PresentesPage = () => {
       <div className="pix-section">
         <h3>Prefere contribuir com Pix?</h3>
         <p>
-          Chave Pix: <strong>casamento@exemplo.com</strong>
+          Chave Pix: <strong>11940729310</strong>
         </p>
       </div>
     </div>
