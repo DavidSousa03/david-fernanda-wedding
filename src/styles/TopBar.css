@@ -109,7 +109,7 @@
   white-space: nowrap;
   padding: 8px 0;
   font-family: 'Quicksand', sans-serif;
-  list-style: none; /* remove bolinhas */
+  list-style: none; 
 }
 
 .menu li:hover {
@@ -117,7 +117,15 @@
   border-bottom: 2px solid var(--dourado);
 }
 
-/* ======== MOBILE ======== */
+.back-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit; 
+}
+
+
 @media (max-width: 768px) {
   .topbar {
     justify-content: space-between;
@@ -145,7 +153,6 @@
     display: flex;
   }
 
-  /* MENU MOBILE MELHORADO */
   .menu {
     top: 60px;
     right: 10px;
@@ -174,7 +181,7 @@
     border-radius: 8px;
     transition: background-color 0.25s ease, color 0.25s ease;
     user-select: none;
-    list-style: none; /* remove bolinhas */
+    list-style: none; 
   }
 
   .menu li + li {
@@ -198,7 +205,6 @@
   }
 }
 
-/* ======== DESKTOP ======== */
 @media (min-width: 769px) {
   .logo-mobile {
     display: none;

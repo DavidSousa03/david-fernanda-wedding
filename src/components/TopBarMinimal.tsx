@@ -7,13 +7,21 @@ const TopBarMinimal = () => {
 
   return (
     <nav className="topbar topbar-minimal">
-      <button
+      <span
+        role="button"
+        tabIndex={0}
         onClick={() => navigate("/")}
-        className="back-button"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            navigate("/");
+          }
+        }}
         aria-label="Voltar para a home"
+        className="back-icon"
+        style={{ cursor: "pointer", display: "inline-flex", alignItems: "center" }}
       >
         <ArrowLeft size={28} />
-      </button>
+      </span>
 
       <span className="center-title">Fernanda & David</span>
     </nav>

@@ -97,7 +97,7 @@ const PresentesPage = () => {
       <TopBarMinimal />
 
       <div className="pagina-presentes" id="lista-presentes">
-        <h2>Escolha um presente com carinho 💛</h2>
+        <h2>Escolha um presente com carinho </h2>
         <p className="intro">
           Abaixo estão alguns presentes simbólicos para nos ajudar a montar nosso lar. Obrigado por fazer parte disso!
         </p>
