@@ -42,11 +42,6 @@ const DressCodeModal = () => {
                 confortável e radiante, exatamente do jeitinho que você é. 💖
               </p>
 
-              {/* <p className="descricao">
-                O dress code para o nosso casamento é: <strong>Traje Social</strong>.<br />
-                Sugerimos roupas elegantes, mas confortáveis para celebrar conosco!
-              </p> */}
-
               <div className="galeria-inspiracoes">
                 <h3>Masculino</h3>
                 <div className="imagens">
