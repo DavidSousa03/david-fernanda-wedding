@@ -31,11 +31,21 @@ const DressCodeModal = () => {
           <div className="modal-content">
             <section className="confirmacao-wrapper">
               <h2>Dress Code do Evento</h2>
-              <p className="descricao">
-                O dress code para o nosso casamento é: <strong>Traje Social</strong>.
+
+              <p className="frase-sugestao">
+                ✨ Com muito carinho, gostaríamos de compartilhar uma inspiração
+                para o Dress Code: <br />
+                Sugerimos trajes passeio completo ou esporte fino — uma escolha
+                pensada para harmonizar com a atmosfera especial do nosso dia!{" "}
                 <br />
-                Sugerimos roupas elegantes, mas confortáveis para celebrar conosco!
+                Mas o mais importante de tudo é que você esteja à vontade,
+                confortável e radiante, exatamente do jeitinho que você é. 💖
               </p>
+
+              {/* <p className="descricao">
+                O dress code para o nosso casamento é: <strong>Traje Social</strong>.<br />
+                Sugerimos roupas elegantes, mas confortáveis para celebrar conosco!
+              </p> */}
 
               <div className="galeria-inspiracoes">
                 <h3>Masculino</h3>
