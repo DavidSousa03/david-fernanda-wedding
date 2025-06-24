@@ -24,13 +24,58 @@ const presentesOriginais: Presente[] = [
   { nome: "Micro-ondas (cota)", preco: 400, imagem: imagens.MicroOndas },
   { nome: "Aparador de entrada", preco: 450, imagem: imagens.Aparador },
   { nome: "Echo show (Alexa)", preco: 500, imagem: imagens.Alexa },
-  { nome: "Kit viagem (malas ou acessórios)", preco: 600, imagem: imagens.KitMala },
+  {
+    nome: "Kit viagem (malas ou acessórios)",
+    preco: 600,
+    imagem: imagens.KitMala,
+  },
   { nome: "Air fryer", preco: 680, imagem: imagens.AirFryer },
   { nome: "Armário de cozinha", preco: 850, imagem: imagens.Armario },
   { nome: 'Smart TV 42"', preco: 1200, imagem: imagens.TV },
   { nome: "Geladeira (cota)", preco: 1400, imagem: imagens.Geladeira },
   { nome: "Máquina de lavar (cota)", preco: 1600, imagem: imagens.Lavadora },
-  { nome: "Robô aspirador inteligente", preco: 2000, imagem: imagens.RoboAspirador },
+  {
+    nome: "Robô aspirador inteligente",
+    preco: 2000,
+    imagem: imagens.RoboAspirador,
+  },
+
+  { nome: "Batedeira compacta", preco: 95, imagem: imagens.Batedeira },
+  { nome: "Tábua de corte com facas", preco: 100, imagem: imagens.TabuaFacas },
+  {
+    nome: "Jogo americano (6 peças)",
+    preco: 110,
+    imagem: imagens.JogoAmericano,
+  },
+  {
+    nome: "Espremedor de frutas elétrico",
+    preco: 120,
+    imagem: imagens.Espremedor,
+  },
+  { nome: "Sanduicheira", preco: 130, imagem: imagens.Sanduicheira },
+  { nome: "Ferro de passar roupas", preco: 145, imagem: imagens.FerroPassar },
+  {
+    nome: "Relógio de parede decorativo",
+    preco: 150,
+    imagem: imagens.RelogioParede,
+  },
+  { nome: "Torradeira inox", preco: 160, imagem: imagens.Torradeira },
+  { nome: "Kit fondue", preco: 170, imagem: imagens.KitFondue },
+  { nome: "Abajur de mesa moderno", preco: 180, imagem: imagens.Abajur },
+  { nome: "Panela elétrica de arroz", preco: 190, imagem: imagens.PanelaArroz },
+  {
+    nome: "Jogo de panelas antiaderente",
+    preco: 200,
+    imagem: imagens.PanelasAntiaderente,
+  },
+  { nome: "Tapete decorativo", preco: 220, imagem: imagens.Tapete },
+  { nome: "Aquecedor portátil", preco: 240, imagem: imagens.Aquecedor },
+  { nome: "Organizador de closet", preco: 260, imagem: imagens.Organizador },
+  { nome: "Caixa de som bluetooth", preco: 280, imagem: imagens.CaixaSom },
+  { nome: "Jogo de facas gourmet", preco: 300, imagem: imagens.FacasGourmet },
+  { nome: "Assadeira elétrica", preco: 350, imagem: imagens.AssadeiraEletrica },
+  { nome: "Aspirador portátil", preco: 400, imagem: imagens.AspiradorPortatil },
+  { nome: "Purificador de água", preco: 490, imagem: imagens.Purificador },
 ];
 
 function embaralharArray<T>(array: T[]): T[] {
@@ -46,7 +91,8 @@ const PresentesPage = () => {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itensPorPagina, setItensPorPagina] = useState(8);
   const [modalAberto, setModalAberto] = useState(false);
-  const [presenteSelecionado, setPresenteSelecionado] = useState<Presente | null>(null);
+  const [presenteSelecionado, setPresenteSelecionado] =
+    useState<Presente | null>(null);
   const [presentes, setPresentes] = useState<Presente[]>([]);
 
   useEffect(() => {
@@ -99,7 +145,8 @@ const PresentesPage = () => {
       <div className="pagina-presentes" id="lista-presentes">
         <h2>Escolha um presente com carinho </h2>
         <p className="intro">
-          Abaixo estão alguns presentes simbólicos para nos ajudar a montar nosso lar. Obrigado por fazer parte disso!
+          Abaixo estão alguns presentes simbólicos para nos ajudar a montar
+          nosso lar. Obrigado por fazer parte disso!
         </p>
 
         <div className="presentes-grid">
@@ -118,7 +165,10 @@ const PresentesPage = () => {
         </div>
 
         <div className="paginacao">
-          <button onClick={() => setPaginaAtual((p) => Math.max(1, p - 1))} disabled={paginaAtual === 1}>
+          <button
+            onClick={() => setPaginaAtual((p) => Math.max(1, p - 1))}
+            disabled={paginaAtual === 1}
+          >
             ← Anterior
           </button>
           <span>
@@ -141,7 +191,12 @@ const PresentesPage = () => {
 
         {modalAberto && presenteSelecionado && (
           <div className="modal-fundo" onClick={fecharModal}>
-            <div className="modal-conteudo" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+            <div
+              className="modal-conteudo"
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+            >
               <button className="modal-fechar" onClick={fecharModal}>
                 ×
               </button>
@@ -154,17 +209,26 @@ const PresentesPage = () => {
                 />
               )}
               <p>
-                Preço: <strong>R$ {presenteSelecionado.preco.toFixed(2)}</strong>
+                Preço:{" "}
+                <strong>R$ {presenteSelecionado.preco.toFixed(2)}</strong>
               </p>
 
               <div className="conteudo-pagamento">
                 <h3>Quer presentear?</h3>
+                <p>
+                  Você pode contribuir com esse valor via <strong>Pix</strong>{" "}
+                  ou <strong>cartão de crédito</strong>.
+                </p>
                 <p>Entre em contato com os noivos para combinar o presente:</p>
 
                 <p>
                   <a
                     href={`https://wa.me/5599985360863?text=${encodeURIComponent(
-                      `Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`
+                      `Olá! Gostaria de presentear vocês com o item "${
+                        presenteSelecionado.nome
+                      }" no valor de R$ ${presenteSelecionado.preco.toFixed(
+                        2
+                      )}. Vi que posso contribuir via Pix ou cartão de crédito. Poderiam me orientar sobre como prosseguir?`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -176,7 +240,11 @@ const PresentesPage = () => {
                 <p>
                   <a
                     href={`https://wa.me/5511940729310?text=${encodeURIComponent(
-                      `Olá, quero presenteá-los com o presente ${presenteSelecionado.nome}`
+                      `Olá! Gostaria de presentear vocês com o item "${
+                        presenteSelecionado.nome
+                      }" no valor de R$ ${presenteSelecionado.preco.toFixed(
+                        2
+                      )}. Vi que posso contribuir via Pix ou cartão de crédito. Poderiam me orientar sobre como prosseguir?`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

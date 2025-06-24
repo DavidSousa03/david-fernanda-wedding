@@ -1,3 +1,4 @@
+
 import Aparador from '../assets/images/aparador.jpg'
 import Armario from '../assets/images/Armario.webp'
 import Cafeteira from '../assets/images/cafeteira.jpg'
@@ -21,6 +22,26 @@ import Sofa from '../assets/images/sofa.jpg'
 import Toalhas from '../assets/images/toalhas.jpg'
 import Ventilador from '../assets/images/tufao.jpg'
 import TV from '../assets/images/tv.jpg'
+import Abajur from '../assets/images/abajur.jpeg';
+import Aquecedor from '../assets/images/Aquecedor.webp';
+import AspiradorPortatil from '../assets/images/AspiradorPortatil.jpg';
+import Batedeira from '../assets/images/Batedeira.webp';
+import CaixaSom from '../assets/images/CaixaSom.webp';
+import Espremedor from '../assets/images/Espremedor.webp';
+import FacasGourmet from '../assets/images/FacasGourmet.jpg';
+import FerroPassar from '../assets/images/FerroPassar.jpeg';
+import JogoAmericano from '../assets/images/JogoAmericano.jpg';
+import KitFondue from '../assets/images/KitFondue.webp';
+import Organizador from '../assets/images/organizador.jpg';
+import PanelaArroz from '../assets/images/PanelaArroz.webp';
+import PanelasAntiaderente from '../assets/images/PanelasAntiaderente.webp';
+import Purificador from '../assets/images/Purificador.webp';
+import RelogioParede from '../assets/images/RelogioParede.jpg';
+import Sanduicheira from '../assets/images/Sanduicheira.webp';
+import TabuaFacas from '../assets/images/TabuaFacas.webp';
+import Tapete from '../assets/images/Tapete.webp';
+import Torradeira from '../assets/images/Torradeira.webp';
+import AssadeiraEletrica from '../assets/images/AssadeiraEletrica.webp';
 
 const imagensPresentes = {
   Aparador,
@@ -46,6 +67,26 @@ const imagensPresentes = {
   Toalhas,
   Ventilador,
   TV,
+  Abajur,
+  Aquecedor,
+  AspiradorPortatil,
+  Batedeira,
+  CaixaSom,
+  Espremedor,
+  FacasGourmet,
+  FerroPassar,
+  JogoAmericano,
+  KitFondue,
+  Organizador,
+  PanelaArroz,
+  PanelasAntiaderente,
+  Purificador,
+  RelogioParede,
+  Sanduicheira,
+  TabuaFacas,
+  Tapete,
+  Torradeira,
+  AssadeiraEletrica
 };
 
 export default imagensPresentes;

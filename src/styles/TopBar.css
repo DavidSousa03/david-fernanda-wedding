@@ -1,8 +1,7 @@
 :root {
   --verde-musgo: #4A5832;
   --dourado: #C9A44B; /* só coloquei essa pq estava usada */
-  --branco: #fff; /* adiciona a variável branco pois usa no background */
-}
+  --branco: #fff; 
 
 .topbar {
   position: fixed;
