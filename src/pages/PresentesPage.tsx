@@ -7,6 +7,7 @@ type Presente = {
   nome: string;
   preco: number;
   imagem?: string;
+  disabled?: boolean;
 };
 
 const presentesOriginais: Presente[] = [
@@ -19,55 +20,30 @@ const presentesOriginais: Presente[] = [
   { nome: "Cafeteira elétrica", preco: 230, imagem: imagens.Cafeteira },
   { nome: "Conjunto de talheres", preco: 250, imagem: imagens.Talheres },
   { nome: "Jogo de cama queen", preco: 280, imagem: imagens.Cama },
-  { nome: "Conjunto de panelas", preco: 320, imagem: imagens.Panelas },
+  { nome: "Conjunto de panelas", preco: 320, imagem: imagens.Panelas, disabled: true },
   { nome: "Aparelho de jantar", preco: 350, imagem: imagens.Janta },
   { nome: "Micro-ondas (cota)", preco: 400, imagem: imagens.MicroOndas },
   { nome: "Aparador de entrada", preco: 450, imagem: imagens.Aparador },
   { nome: "Echo show (Alexa)", preco: 500, imagem: imagens.Alexa },
-  {
-    nome: "Kit viagem (malas ou acessórios)",
-    preco: 600,
-    imagem: imagens.KitMala,
-  },
+  { nome: "Kit viagem (malas ou acessórios)", preco: 600, imagem: imagens.KitMala },
   { nome: "Air fryer", preco: 680, imagem: imagens.AirFryer },
   { nome: "Armário de cozinha", preco: 850, imagem: imagens.Armario },
   { nome: 'Smart TV 42"', preco: 1200, imagem: imagens.TV },
   { nome: "Geladeira (cota)", preco: 1400, imagem: imagens.Geladeira },
   { nome: "Máquina de lavar (cota)", preco: 1600, imagem: imagens.Lavadora },
-  {
-    nome: "Robô aspirador inteligente",
-    preco: 2000,
-    imagem: imagens.RoboAspirador,
-  },
-
-  { nome: "Batedeira compacta", preco: 95, imagem: imagens.Batedeira },
+  { nome: "Robô aspirador inteligente", preco: 2000, imagem: imagens.RoboAspirador },
+  { nome: "Batedeira compacta", preco: 95, imagem: imagens.Batedeira, disabled: true },
   { nome: "Tábua de corte com facas", preco: 100, imagem: imagens.TabuaFacas },
-  {
-    nome: "Jogo americano (6 peças)",
-    preco: 110,
-    imagem: imagens.JogoAmericano,
-  },
-  {
-    nome: "Espremedor de frutas elétrico",
-    preco: 120,
-    imagem: imagens.Espremedor,
-  },
+  { nome: "Jogo americano (6 peças)", preco: 110, imagem: imagens.JogoAmericano },
+  { nome: "Espremedor de frutas elétrico", preco: 120, imagem: imagens.Espremedor },
   { nome: "Sanduicheira", preco: 130, imagem: imagens.Sanduicheira },
   { nome: "Ferro de passar roupas", preco: 145, imagem: imagens.FerroPassar },
-  {
-    nome: "Relógio de parede decorativo",
-    preco: 150,
-    imagem: imagens.RelogioParede,
-  },
+  { nome: "Relógio de parede decorativo", preco: 150, imagem: imagens.RelogioParede },
   { nome: "Torradeira inox", preco: 160, imagem: imagens.Torradeira },
   { nome: "Kit fondue", preco: 170, imagem: imagens.KitFondue },
   { nome: "Abajur de mesa moderno", preco: 180, imagem: imagens.Abajur },
   { nome: "Panela elétrica de arroz", preco: 190, imagem: imagens.PanelaArroz },
-  {
-    nome: "Jogo de panelas antiaderente",
-    preco: 200,
-    imagem: imagens.PanelasAntiaderente,
-  },
+  { nome: "Jogo de panelas antiaderente", preco: 200, imagem: imagens.PanelasAntiaderente },
   { nome: "Tapete decorativo", preco: 220, imagem: imagens.Tapete },
   { nome: "Aquecedor portátil", preco: 240, imagem: imagens.Aquecedor },
   { nome: "Organizador de closet", preco: 260, imagem: imagens.Organizador },
@@ -91,8 +67,7 @@ const PresentesPage = () => {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itensPorPagina, setItensPorPagina] = useState(8);
   const [modalAberto, setModalAberto] = useState(false);
-  const [presenteSelecionado, setPresenteSelecionado] =
-    useState<Presente | null>(null);
+  const [presenteSelecionado, setPresenteSelecionado] = useState<Presente | null>(null);
   const [presentes, setPresentes] = useState<Presente[]>([]);
 
   useEffect(() => {
@@ -129,8 +104,10 @@ const PresentesPage = () => {
   );
 
   const abrirModal = (presente: Presente) => {
-    setPresenteSelecionado(presente);
-    setModalAberto(true);
+    if (!presente.disabled) {
+      setPresenteSelecionado(presente);
+      setModalAberto(true);
+    }
   };
 
   const fecharModal = () => {
@@ -151,7 +128,10 @@ const PresentesPage = () => {
 
         <div className="presentes-grid">
           {presentesVisiveis.map((presente, index) => (
-            <div key={index} className="presente-card">
+            <div
+              key={index}
+              className={`presente-card ${presente.disabled ? "presente-desativado" : ""}`}
+            >
               {presente.imagem ? (
                 <img src={presente.imagem} alt={presente.nome} />
               ) : (
@@ -159,7 +139,13 @@ const PresentesPage = () => {
               )}
               <h3>{presente.nome}</h3>
               <p>R$ {presente.preco.toFixed(2)}</p>
-              <button onClick={() => abrirModal(presente)}>Presentear</button>
+              <button
+                onClick={() => abrirModal(presente)}
+                disabled={presente.disabled}
+                className={presente.disabled ? "botao-desativado" : ""}
+              >
+                {presente.disabled ? "Indisponível" : "Presentear"}
+              </button>
             </div>
           ))}
         </div>

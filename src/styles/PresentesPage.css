@@ -2,15 +2,18 @@
   --verde-musgo: #4A5832;
   --dourado: #C9A44B;
   --branco: #fff;
+  --cinza-fundo: #f0f0f0;
+  --cinza-texto: #888;
+  --cinza-botao: #ccc;
 }
 
-/* Container principal respeitando a TopBar fixa */
+/* Container principal */
 .pagina-presentes {
-  padding: 100px 20px 40px; /* topo maior para espaçamento + topbar */
+  padding: 100px 20px 40px;
   font-family: 'Cormorant Garamond', serif;
   width: 100%;
   box-sizing: border-box;
-  min-height: calc(100vh - 60px); /* altura mínima descontando topbar */
+  min-height: calc(100vh - 60px);
 }
 
 .intro {
@@ -36,6 +39,7 @@
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .presente-card img {
@@ -52,6 +56,7 @@
 .presente-card h3 {
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
+  color: #222;
 }
 
 .imagem-placeholder {
@@ -69,6 +74,7 @@
 .presente-card p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
+  color: #333;
 }
 
 .presente-card button {
@@ -82,7 +88,7 @@
   transition: background-color 0.3s ease;
 }
 
-.presente-card button:hover {
+.presente-card button:hover:not(:disabled):not(.botao-desativado) {
   background-color: #4a633c;
 }
 
@@ -91,12 +97,34 @@
   outline-offset: 2px;
 }
 
+/* Estilo para presentes desativados */
+.presente-desativado {
+  background-color: var(--cinza-fundo);
+}
+
+.presente-desativado h3,
+.presente-desativado p {
+  color: var(--cinza-texto);
+}
+
+.presente-desativado img {
+  filter: grayscale(100%) opacity(0.6);
+}
+
+.presente-desativado button {
+  background-color: var(--cinza-botao);
+  color: var(--cinza-texto);
+  cursor: not-allowed;
+}
+
+/* PIX Section */
 .pix-section {
   margin-top: 3rem;
   font-size: 1.2rem;
   text-align: center;
 }
 
+/* Paginação */
 .paginacao {
   margin-top: 2rem;
   display: flex;
@@ -125,6 +153,7 @@
   outline-offset: 2px;
 }
 
+/* Responsivo */
 @media (min-width: 1024px) {
   .presentes-grid {
     grid-template-columns: repeat(5, 1fr);
@@ -143,14 +172,15 @@
   }
 }
 
+/* Modal */
 .modal-fundo {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding-top: 60px; 
-  background-color: rgba(0, 0, 0, 0.6); 
+  padding-top: 60px;
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,8 +194,8 @@
   border-radius: 12px;
   max-width: 480px;
   width: 90%;
-  max-height: 80vh; 
-  overflow-y: auto; 
+  max-height: 80vh;
+  overflow-y: auto;
   box-sizing: border-box;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   position: relative;
