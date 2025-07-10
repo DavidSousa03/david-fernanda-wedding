@@ -11,8 +11,8 @@ type Presente = {
 };
 
 const presentesOriginais: Presente[] = [
-  { nome: "Kit para bolo", preco: 50, imagem: imagens.KitBolo },
-  { nome: "Xicaras", preco: 70, imagem: imagens.Xicaras },
+  { nome: "Kit para bolo", preco: 50, imagem: imagens.KitBolo, disabled: true },
+  { nome: "Xicaras", preco: 70, imagem: imagens.Xicaras, disabled: true },
   { nome: "Jogo de copos (6 unid.)", preco: 90, imagem: imagens.Copos },
   { nome: "Jogo de toalhas", preco: 120, imagem: imagens.Toalhas },
   { nome: "Ventilador de mesa", preco: 140, imagem: imagens.Ventilador },
@@ -39,7 +39,7 @@ const presentesOriginais: Presente[] = [
   { nome: "Sanduicheira", preco: 130, imagem: imagens.Sanduicheira },
   { nome: "Ferro de passar roupas", preco: 145, imagem: imagens.FerroPassar },
   { nome: "Relógio de parede decorativo", preco: 150, imagem: imagens.RelogioParede },
-  { nome: "Torradeira inox", preco: 160, imagem: imagens.Torradeira },
+  { nome: "Torradeira inox", preco: 160, imagem: imagens.Torradeira, disabled: true },
   { nome: "Kit fondue", preco: 170, imagem: imagens.KitFondue },
   { nome: "Abajur de mesa moderno", preco: 180, imagem: imagens.Abajur },
   { nome: "Panela elétrica de arroz", preco: 190, imagem: imagens.PanelaArroz },
